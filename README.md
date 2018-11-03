@@ -2,10 +2,10 @@
 Make an Event Bus with LiveData
 
 ## Why this library?
-- It uses `LiveData`, which can be used to help manage propagating data to your views, while respecting the activity and fragment lifecycles
-- Simplifies the communication between components, just live [EventBus](https://github.com/greenrobot/EventBus)
-- Makes your code simpler
-- Tiny codes
+- It uses `LiveData`, which can be used to help manage propagating data to your views, while respecting the activity and fragment lifecycles.
+- Simplifies the communication between components, just like [EventBus](https://github.com/greenrobot/EventBus).
+- Makes your code simpler.
+- Tiny codes.
 
 ## How to use?
 - Subscribe
