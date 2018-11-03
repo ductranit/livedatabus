@@ -20,6 +20,9 @@ import androidx.annotation.NonNull
 import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.Observer
 
+/**
+ * Singleton object to manage bus events.
+ */
 object LiveDataBus {
 
     private val subjectMap = HashMap<String, EventLiveData>()

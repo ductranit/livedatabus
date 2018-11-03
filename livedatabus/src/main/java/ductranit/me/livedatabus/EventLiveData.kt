@@ -19,6 +19,9 @@ package ductranit.me.livedatabus
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.Observer
 
+/**
+ * A custom LiveData which can unregister when there is no observer
+ */
 class EventLiveData( private val mSubject: String) : LiveData<ConsumableEvent>() {
 
     fun update(obj: ConsumableEvent) {
