@@ -26,9 +26,12 @@ task clean(type: Delete) {
     delete rootProject.buildDir
 }
 
+subprojects {
+    tasks.withType(Javadoc).all { enabled = false }
+}
+
 ext {
     lifecycle = "2.0.0"
     androidX = "1.0.0"
     constraint = "2.0.0-alpha2"
-
 }

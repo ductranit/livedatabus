@@ -1,6 +1,40 @@
 apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
 
+buildscript {
+    repositories {
+        jcenter()
+    }
+    dependencies {
+        classpath 'com.github.dcendents:android-maven-gradle-plugin:1.4.1'
+        classpath 'com.jfrog.bintray.gradle:gradle-bintray-plugin:1.7.3'
+    }
+}
+
+ext {
+    bintrayRepo = 'livedatabus'
+    bintrayName = 'livedatabus'
+
+    publishedGroupId = 'ductranit.me.livedatabus'
+    libraryName = 'livedatabus'
+    artifact = 'livedatabus'
+
+    libraryDescription = 'Make an Event Bus with LiveData'
+
+    siteUrl = 'https://github.com/ductranit/livedatabus'
+    gitUrl = 'https://github.com/ductranit/livedatabus.git'
+
+    libraryVersion = '1.0.0'
+
+    developerId = 'ductranit'
+    developerName = 'ductran'
+    developerEmail = 'ductranminh.it@gmail.com'
+
+    licenseName = 'The Apache Software License, Version 2.0'
+    licenseUrl = 'http://www.apache.org/licenses/LICENSE-2.0.txt'
+    allLicenses = ["Apache-2.0"]
+}
+
 android {
     compileSdkVersion 28
 
@@ -30,6 +64,9 @@ android {
 
 }
 
+apply plugin: 'com.github.dcendents.android-maven'
+apply plugin: 'com.jfrog.bintray'
+
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
 
@@ -42,4 +79,9 @@ dependencies {
 }
 repositories {
     mavenCentral()
+}
+
+if (project.rootProject.file('local.properties').exists()) {
+    apply from: 'https://raw.githubusercontent.com/nuuneoi/JCenter/master/installv1.gradle'
+    apply from: 'https://raw.githubusercontent.com/nuuneoi/JCenter/master/bintrayv1.gradle'
 }
