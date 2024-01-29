@@ -1,5 +1,6 @@
 apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
+apply plugin: 'maven-publish'
 
 buildscript {
     repositories {
@@ -9,29 +10,6 @@ buildscript {
     }
 }
 
-ext {
-    bintrayRepo = 'livedatabus'
-    bintrayName = 'livedatabus'
-
-    publishedGroupId = 'ductranit.me.livedatabus'
-    libraryName = 'livedatabus'
-    artifact = 'livedatabus'
-
-    libraryDescription = 'Make an Event Bus with LiveData'
-
-    siteUrl = 'https://github.com/ductranit/livedatabus'
-    gitUrl = 'https://github.com/ductranit/livedatabus.git'
-
-    libraryVersion = '1.0.0'
-
-    developerId = 'ductranit'
-    developerName = 'ductran'
-    developerEmail = 'ductranminh.it@gmail.com'
-
-    licenseName = 'The Apache Software License, Version 2.0'
-    licenseUrl = 'http://www.apache.org/licenses/LICENSE-2.0.txt'
-    allLicenses = ["Apache-2.0"]
-}
 
 android {
     defaultConfig {
@@ -39,6 +17,10 @@ android {
         targetSdkVersion 34
         compileSdk 34
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+
+        aarMetadata {
+            minCompileSdk = 29
+        }
 
     }
 
@@ -57,9 +39,6 @@ android {
 
 }
 
-//apply plugin: 'com.github.dcendents.android-maven'
-//apply plugin: 'com.jfrog.bintray'
-
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
 
@@ -73,7 +52,16 @@ repositories {
     mavenCentral()
 }
 
-//if (project.rootProject.file('local.properties').exists()) {
-//    apply from: 'https://raw.githubusercontent.com/nuuneoi/JCenter/master/installv1.gradle'
-//    apply from: 'https://raw.githubusercontent.com/nuuneoi/JCenter/master/bintrayv1.gradle'
-//}
+publishing {
+    publications {
+        release(MavenPublication) {
+            groupId = 'ductranit'
+            artifactId = 'livedatabus'
+            version = '1.1.0'
+            description 'Make an Event Bus with LiveData'
+            afterEvaluate {
+                from components.release
+            }
+        }
+    }
+}
