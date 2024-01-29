@@ -22,29 +22,24 @@ Make an Event Bus with LiveData
   LiveDataBus.publish("event_name", ConsumableEvent(value = obj))
 ```
 ## Install
-Via Gradle:
+- Add it in your root build.gradle at the end of repositories:
 ```gradle
-implementation 'ductranit.me.livedatabus:livedatabus:1.0.0'
+dependencyResolutionManagement {
+ repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
+  repositories {
+   mavenCentral()
+   maven { url 'https://jitpack.io' }
+ }
+}
 ```
-
-Via Maven:
-```xml
-<dependency>
-  <groupId>ductranit.me.livedatabus</groupId>
-  <artifactId>livedatabus</artifactId>
-  <version>1.0.0</version>
-  <type>pom</type>
-</dependency>
+- Add the dependency
+```gradle
+implementation 'com.github.ductranit:livedatabus:1.1.0'
 ```
 
 ## Prerequisites
-- Android API Level >= 14
+- Android API Level >= 19
 - Android X (architecture component)[https://developer.android.com/topic/libraries/architecture]
-- Kotlin >= `1.3.0`
-
-## References
-https://hisblog.yoursun.me/2018/02/12/Android-Replace-EventBus-with-LiveData.html
-https://android.jlelse.eu/how-to-make-an-event-bus-with-googles-livedata-5efcc50d818f
 
 ## License
 -------
