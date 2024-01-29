@@ -22,14 +22,14 @@ Make an Event Bus with LiveData
   LiveDataBus.publish("event_name", ConsumableEvent(value = obj))
 ```
 ## Install
-- Add it in your root build.gradle at the end of repositories:
+- Add it in your root build.gradle:
 ```gradle
-dependencyResolutionManagement {
- repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
-  repositories {
-   mavenCentral()
-   maven { url 'https://jitpack.io' }
- }
+allprojects {
+    repositories {
+        // ... other maven repos
+        
+        maven { url "https://jitpack.io"  }
+    }
 }
 ```
 - Add the dependency

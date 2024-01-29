@@ -21,7 +21,6 @@ android {
         aarMetadata {
             minCompileSdk = 29
         }
-
     }
 
     buildTypes {
